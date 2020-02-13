@@ -453,3 +453,9 @@ void tolua_openint64(lua_State* L)
 
     lua_rawseti(L, LUA_REGISTRYINDEX, LUA_RIDX_INT64);     
 }
+
+LUALIB_API int luaopen_int64(lua_State *L)
+{
+    tolua_openint64(L);
+    return 1;
+}
