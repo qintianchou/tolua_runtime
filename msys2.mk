@@ -17,7 +17,7 @@ build: clean
 		cjson/fpconv.c \
 		-o cjson.dll \
 		-Iluajit-2.1/src \
-		-Icjon
+		-Icjson
 
 	# 编译lua模块int64
 	gcc -Os -Wall -fPIC -shared \
