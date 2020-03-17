@@ -1,4 +1,4 @@
-PATH_INSTALL = ~/luajit
+PATH_INSTALL = /usr/local/bin
 PATH_JIT = $(PATH_INSTALL)/lua/jit
 FILES_MODULE = cjson.dll int64.dll uint64.dll
 
@@ -47,6 +47,8 @@ install: uninstall
 	install -m 0644 $(FILES_MODULE) $(PATH_INSTALL)
 
 uninstall:
-	rm -rf $(PATH_INSTALL)
+	cd $(PATH_INSTALL) && rm -f $(FILES_MODULE)
+	cd $(PATH_INSTALL) && rm -f lua51.dll luajit.exe
+	cd $(PATH_INSTALL) && rm -rf lua
 
 .PHONY: help build clean install uninstall
