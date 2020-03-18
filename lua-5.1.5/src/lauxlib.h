@@ -88,7 +88,7 @@ LUALIB_API const char *(luaL_gsub) (lua_State *L, const char *s, const char *p,
 LUALIB_API const char *(luaL_findtable) (lua_State *L, int idx,
                                          const char *fname, int szhint);
 
-extern void (luaL_setfuncs) (lua_State *L, const luaL_Reg *l, int nup);
+
 
 
 /*
