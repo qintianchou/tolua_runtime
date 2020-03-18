@@ -650,3 +650,15 @@ LUALIB_API lua_State *luaL_newstate (void) {
   return L;
 }
 
+LUALIB_API void luaL_setfuncs(lua_State *L, const luaL_Reg *l, int nup)
+{
+  luaL_checkstack(L, nup, "too many upvalues");
+  for (; l->name; l++) {
+    int i;
+    for (i = 0; i < nup; i++)  /* Copy upvalues to the top. */
+      lua_pushvalue(L, -nup);
+    lua_pushcclosure(L, l->func, nup);
+    lua_setfield(L, -(nup + 2), l->name);
+  }
+  lua_pop(L, nup);  /* Remove upvalues. */
+}

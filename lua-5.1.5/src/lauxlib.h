@@ -169,6 +169,8 @@ LUALIB_API void (luaL_pushresult) (luaL_Buffer *B);
 
 #define luaL_reg	luaL_Reg
 
+LUALIB_API void (luaL_setfuncs) (lua_State *L, const luaL_Reg *l, int nup);
+
 #endif
 
 
