@@ -4,7 +4,8 @@ set -euo pipefail
 # Build LuaJIT and Android shared library for arm64-v8a on macOS.
 
 # Configure your local Android NDK path and API level.
-NDK="/Users/shuohou/Library/Android/sdk/ndk/28.2.13676358"
+# Prefer ANDROID_NDK_HOME if set; fallback to the standard SDK path under $HOME.
+NDK="${ANDROID_NDK_HOME:-$HOME/Library/Android/sdk/ndk/28.2.13676358}"
 API=35
 
 # Detect the correct prebuilt host tag under the NDK (Intel vs Apple Silicon).
